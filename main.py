@@ -1,10 +1,10 @@
-import logging
+from flask import Flask
 
-from app import create_app
+app = Flask(__name__)
 
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
 
-app = create_app()
+app.run(host='0.0.0.0', port=8080)
 
-if __name__ == "__main__":
-    logging.info("Flask app started")
-    app.run(host="0.0.0.0", port=5000)
